@@ -62,6 +62,8 @@ object GraphBasics extends App {
   val sink1 = Sink.foreach[Int](x=>println(s"sink1: $x"))
   val sink2 = Sink.foreach[Int](x=>println(s"sink2: $x"))
 
+
+
   val graph2 = RunnableGraph.fromGraph {
     GraphDSL.create() { implicit builder =>
       import GraphDSL.Implicits._
