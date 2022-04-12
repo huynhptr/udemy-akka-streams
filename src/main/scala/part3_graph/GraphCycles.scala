@@ -105,8 +105,8 @@ object GraphCycles extends App {
   val easyFiboGraph = RunnableGraph.fromGraph {
     GraphDSL.create() { implicit builder =>
       import GraphDSL.Implicits._
-      val source1 = builder.add(Source.single(1))
-      val source2 = builder.add(Source.single(1))
+      val source1 = builder.add(Source.single[BigInt](1))
+      val source2 = builder.add(Source.single[BigInt](1))
       val zipGraph = builder.add(Zip[BigInt, BigInt])
       val mpGraph = builder.add(MergePreferred[(BigInt, BigInt)](1))
       val calFlow = builder.add(Flow[(BigInt, BigInt)].map {tup =>
